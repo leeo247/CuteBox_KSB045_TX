@@ -5,13 +5,13 @@ function back () {
     radio.sendNumber(2)
 }
 function D () {
-    radio.sendNumber(5)
+    radio.sendNumber(14)
 }
 function E () {
-    radio.sendNumber(1)
+    radio.sendNumber(11)
 }
 function F () {
-    radio.sendNumber(3)
+    radio.sendNumber(13)
 }
 input.onButtonPressed(Button.B, function () {
     music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
@@ -26,7 +26,7 @@ function Right () {
     radio.sendNumber(4)
 }
 function C () {
-    radio.sendNumber(2)
+    radio.sendNumber(5)
 }
 function Stop () {
     radio.sendNumber(5)
