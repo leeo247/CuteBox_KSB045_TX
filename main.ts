@@ -99,9 +99,9 @@ basic.forever(function () {
         }
     } else {
         if (X == 0) {
-            Left()
-        } else if (X == 4) {
             Right()
+        } else if (X == 4) {
+            Left()
         } else if (X == 2 && Y == 2) {
             Stop()
         } else {
