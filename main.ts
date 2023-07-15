@@ -1,35 +1,35 @@
 function Left () {
-    radio.sendNumber(1)
+    radio.sendNumber(3)
 }
 function back () {
-    radio.sendNumber(5)
+    radio.sendNumber(2)
 }
 function D () {
-	
+    radio.sendNumber(5)
 }
 function E () {
-	
+    radio.sendNumber(1)
 }
 function F () {
-	
-}
-function go_ahead () {
     radio.sendNumber(3)
+}
+input.onButtonPressed(Button.B, function () {
+    music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
+})
+function go_ahead () {
+    radio.sendNumber(1)
 }
 input.onButtonPressed(Button.A, function () {
     music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
 })
-input.onButtonPressed(Button.B, function () {
-    music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
-})
 function Right () {
-    radio.sendNumber(2)
+    radio.sendNumber(4)
 }
 function C () {
-	
+    radio.sendNumber(2)
 }
 function Stop () {
-    radio.sendNumber(4)
+    radio.sendNumber(5)
 }
 let Y = 0
 let X = 0
@@ -87,23 +87,23 @@ basic.forever(function () {
             }
         }
     }
-    if (Y >= X) {
+    if (Y != 2) {
         if (Y == 0) {
-            radio.sendNumber(3)
+            go_ahead()
         } else if (Y == 4) {
-            radio.sendNumber(5)
+            back()
         } else if (X == 2 && Y == 2) {
-            radio.sendNumber(4)
+            Stop()
         } else {
         	
         }
     } else {
         if (X == 0) {
-            radio.sendNumber(1)
+            Left()
         } else if (X == 4) {
-            radio.sendNumber(2)
+            Right()
         } else if (X == 2 && Y == 2) {
-            radio.sendNumber(4)
+            Stop()
         } else {
         	
         }
