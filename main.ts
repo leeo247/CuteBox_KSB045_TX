@@ -1,9 +1,36 @@
+function Left () {
+    radio.sendNumber(1)
+}
+function back () {
+    radio.sendNumber(5)
+}
+function D () {
+	
+}
+function E () {
+	
+}
+function F () {
+	
+}
+function go_ahead () {
+    radio.sendNumber(3)
+}
 input.onButtonPressed(Button.A, function () {
     music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
 })
 input.onButtonPressed(Button.B, function () {
     music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
 })
+function Right () {
+    radio.sendNumber(2)
+}
+function C () {
+	
+}
+function Stop () {
+    radio.sendNumber(4)
+}
 let Y = 0
 let X = 0
 let Y1 = 0
@@ -60,28 +87,48 @@ basic.forever(function () {
             }
         }
     }
+    if (Y >= X) {
+        if (Y == 0) {
+            radio.sendNumber(3)
+        } else if (Y == 4) {
+            radio.sendNumber(5)
+        } else if (X == 2 && Y == 2) {
+            radio.sendNumber(4)
+        } else {
+        	
+        }
+    } else {
+        if (X == 0) {
+            radio.sendNumber(1)
+        } else if (X == 4) {
+            radio.sendNumber(2)
+        } else if (X == 2 && Y == 2) {
+            radio.sendNumber(4)
+        } else {
+        	
+        }
+    }
     basic.clearScreen()
     led.plot(X, Y)
     if (KEYC == 0) {
         basic.clearScreen()
         basic.showString("C")
         pins.digitalWritePin(DigitalPin.P16, 0)
-        radio.sendNumber(4)
+        C()
     }
     if (KEYD == 0) {
-        basic.clearScreen()
         basic.showString("D")
-        radio.sendNumber(2)
+        D()
     }
     if (KEYE == 0) {
         basic.clearScreen()
         basic.showString("E")
-        radio.sendNumber(3)
+        E()
     }
     if (KEYF == 0) {
         basic.clearScreen()
         basic.showString("F")
-        radio.sendNumber(1)
+        F()
     }
     if (R_KEY == 0) {
         basic.clearScreen()
