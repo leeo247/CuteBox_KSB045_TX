@@ -13,14 +13,14 @@ function E () {
 function F () {
     radio.sendNumber(13)
 }
-input.onButtonPressed(Button.B, function () {
-    music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
-})
 function go_ahead () {
     radio.sendNumber(1)
 }
 input.onButtonPressed(Button.A, function () {
     music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
+})
+input.onButtonPressed(Button.B, function () {
+    music.startMelody(music.builtInMelody(Melodies.JumpDown), MelodyOptions.Once)
 })
 function Right () {
     radio.sendNumber(4)
@@ -51,41 +51,25 @@ basic.forever(function () {
     Y1 = pins.analogReadPin(AnalogPin.P1)
     if (X1 < 30) {
         X = 4
-    } else {
-        if (X1 < 256) {
-            X = 3
-        } else {
-            if (X1 < 535) {
-                X = 2
-            } else {
-                if (X1 < 768) {
-                    X = 1
-                } else {
-                    if (X1 < 1023) {
-                        X = 0
-                    }
-                }
-            }
-        }
+    } else if (X1 < 256) {
+        X = 3
+    } else if (X1 < 535) {
+        X = 2
+    } else if (X1 < 768) {
+        X = 1
+    } else if (X1 < 1023) {
+        X = 0
     }
     if (Y1 < 30) {
         Y = 0
-    } else {
-        if (Y1 < 256) {
-            Y = 1
-        } else {
-            if (Y1 < 525) {
-                Y = 2
-            } else {
-                if (Y1 < 768) {
-                    Y = 3
-                } else {
-                    if (Y1 < 1023) {
-                        Y = 4
-                    }
-                }
-            }
-        }
+    } else if (Y1 < 256) {
+        Y = 1
+    } else if (Y1 < 525) {
+        Y = 2
+    } else if (Y1 < 768) {
+        Y = 3
+    } else if (Y1 < 1023) {
+        Y = 4
     }
     if (Y != 2) {
         if (Y == 0) {
@@ -97,16 +81,14 @@ basic.forever(function () {
         } else {
         	
         }
+    } else if (X == 0) {
+        Right()
+    } else if (X == 4) {
+        Left()
+    } else if (X == 2 && Y == 2) {
+        Stop()
     } else {
-        if (X == 0) {
-            Right()
-        } else if (X == 4) {
-            Left()
-        } else if (X == 2 && Y == 2) {
-            Stop()
-        } else {
-        	
-        }
+    	
     }
     basic.clearScreen()
     led.plot(X, Y)
